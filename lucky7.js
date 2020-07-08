@@ -102,10 +102,10 @@ var rollDice = () => {
             dice2.classList.add('effect2');
             roll.disabled = false;
             dice1Number = Math.floor(Math.random() * 6 + 1);
-            dice1value = `images/dice-${dice1Number}.JPEG`
+            dice1value = `images/dice-${dice1Number}.png`
             dice1.setAttribute('src', dice1value);
             dice2Number = Math.floor(Math.random() * 6 + 1);
-            dice2value = `images/dice-${dice2Number}.JPEG`
+            dice2value = `images/dice-${dice2Number}.png`
             dice2.setAttribute('src', dice2value);
 
             bet.value = '';
