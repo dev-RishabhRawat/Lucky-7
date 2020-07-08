@@ -24,7 +24,7 @@ body {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    margin: auto 10px;
+    margin: auto 15px;
 }
 
 #div2 {

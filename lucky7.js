@@ -19,25 +19,25 @@ var msg = document.getElementById('output');
 var won = document.getElementById('won');
 var span = document.getElementById('span');
 var unhideButton = document.getElementById('unhideButton');
-var selectedId, dice1Number, dice2Number, betValue, msg, clicked, h3 , betAmount;
-var  winner, sum, score=0;
-function getScore()
-{
+var reset = document.getElementById('reset')
+var selectedId, dice1Number, dice2Number, betValue, msg, clicked, h3, betAmount;
+var winner, sum, score = 0;
+function getScore() {
 
-    if(temp.innerHTML ===`Congrats! you won!! ${betAmount * 2} Rupees!`){
-        score = score+betAmount*2;
+    if (temp.innerHTML === `Congrats! you won!! ${betAmount * 2} Rupees!`) {
+        score = score + betAmount * 2;
         return score;
     }
-    else if(temp.innerHTML === `Congrats! you won!! ${betAmount * 3} Rupees!`){
-        score = score+betAmount*3;
+    else if (temp.innerHTML === `Congrats! you won!! ${betAmount * 3} Rupees!`) {
+        score = score + betAmount * 3;
         return score;
     }
-    else{
-        if(score>0){
+    else {
+        if (score > 0) {
             score = score - betAmount
             return score;
         }
-        else{
+        else {
             return 0;
         }
     }
@@ -46,13 +46,13 @@ function getScore()
 var beep = new Audio();
 beep.src = 'sound.mp3';
 function playSound() {
-    if(less.innerHTML === "less Than 7 Selected" || equal.innerHTML === "equal to 7 Selected" || more.innerHTML === "More Than 7 Selected"){
+    if (less.innerHTML === "less Than 7 Selected" || equal.innerHTML === "equal to 7 Selected" || more.innerHTML === "More Than 7 Selected") {
         beep.play();
     }
-    else{
+    else {
         console.log('unable to play sound');
     }
-    
+
 }
 var count = temp.childElementCount;
 bet.disabled = true;
@@ -94,39 +94,39 @@ function betValue() {
 var rollDice = () => {
     betAmount = betValue();
     if (betAmount > 0) {
-       if(msg.childElementCount>1){
-           roll.disabled=true;
-       }
-       else{
-        dice1.classList.add('effect1');
-        dice2.classList.add('effect2');
-        roll.disabled=false;
-        dice1Number = Math.floor(Math.random() * 6 + 1);
-        dice1value = `images/dice-${dice1Number}.JPEG`
-        dice1.setAttribute('src', dice1value);
-        dice2Number = Math.floor(Math.random() * 6 + 1);
-        dice2value = `images/dice-${dice2Number}.JPEG`
-        dice2.setAttribute('src', dice2value);
-        
-        bet.value = '';
-        sum = (dice1Number + dice2Number);
-        winner = whoWon();
-        equal.innerHTML = '';
-        less.innerHTML = '';
-        more.innerHTML = '';
-        roundScore = getScore();
-        if(roundScore<10){
-            span.innerHTML=`0${roundScore}`;
+        if (msg.childElementCount > 1) {
+            roll.disabled = true;
         }
-        else{
-           span.innerHTML=roundScore;
+        else {
+            dice1.classList.add('effect1');
+            dice2.classList.add('effect2');
+            roll.disabled = false;
+            dice1Number = Math.floor(Math.random() * 6 + 1);
+            dice1value = `images/dice-${dice1Number}.JPEG`
+            dice1.setAttribute('src', dice1value);
+            dice2Number = Math.floor(Math.random() * 6 + 1);
+            dice2value = `images/dice-${dice2Number}.JPEG`
+            dice2.setAttribute('src', dice2value);
+
+            bet.value = '';
+            sum = (dice1Number + dice2Number);
+            winner = whoWon();
+            equal.innerHTML = '';
+            less.innerHTML = '';
+            more.innerHTML = '';
+            roundScore = getScore();
+            if (roundScore < 10) {
+                span.innerHTML = `0${roundScore}`;
+            }
+            else {
+                span.innerHTML = roundScore;
+            }
+            setTimeout(() => {
+                dice1.classList.remove('effect1');
+                dice2.classList.remove('effect2');
+            }, 500)
         }
-        setTimeout(()=>{
-            dice1.classList.remove('effect1');
-            dice2.classList.remove('effect2');
-        },500)
-       }
-       
+
     }
     else {
         temp.innerHTML = "";
@@ -142,7 +142,6 @@ var rollDice = () => {
 
 function hideGameRules() {
     div2.classList.add('hidden');
-    section.classList.add('column');
     hide.classList.add('hidden');
     intro.classList.add('hidden');
     section.classList.remove('block');
@@ -150,9 +149,22 @@ function hideGameRules() {
     betArea.classList.remove('block');
     unhideButton.classList.remove('block');
     won.classList.remove('block');
+    reset.classList.remove('block');
 }
-function  unHideGameRules() {
+function unHideGameRules(){
+    div2.classList.remove('hidden');
+    hide.classList.remove('hidden');
+    intro.classList.remove('hidden');
+    section.classList.add('block');
+    footer.classList.add('block');
+    betArea.classList.add('block');
+    unhideButton.classList.add('block');
+    won.classList.add('block');
+    reset.classList.add('block');
+}
+function reStart() {
     document.location.reload();
+   
 }
 
 var roll = document.getElementById('roll');
@@ -175,13 +187,13 @@ function whoWon() {
     else {
         if (less.innerHTML === "less Than 7 Selected" || equal.innerHTML === "equal to 7 Selected" || more.innerHTML === "More Than 7 Selected") {
             temp.innerHTML = "";
-        h3 = document.createElement('h3');
-        h3.textContent = `Bette Luck Next Time! you lost ${betAmount} Rupees `;
-        h3.setAttribute('id', 'betMsg');
-        msg.appendChild(h3);
-        setTimeout(() => {
-            msg.removeChild(h3);
-        }, 1000);
+            h3 = document.createElement('h3');
+            h3.textContent = `Bette Luck Next Time! you lost ${betAmount} Rupees `;
+            h3.setAttribute('id', 'betMsg');
+            msg.appendChild(h3);
+            setTimeout(() => {
+                msg.removeChild(h3);
+            }, 1000);
         }
         else {
             temp.innerHTML = `Please Select Playing condition First!!`;
