@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Acme&family=Noto+Serif&family=Roboto+Slab:wght@100&display=swap"
+        rel="stylesheet">
+        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <title>Lucky Seven</title>
+</head>
+
+<body>
+    
+    <header >
+        <div id="div1">
+            <h1 id="heading">Lucky Seven Game</h1>            
+        </div>
+        <div id="div1Child" > <button class="btn block" id="unhideButton" onclick="unHideGameRules()">Game Rules</button> <h3 id="won" class="block" >Won:<span id="span">00</span></h3></strong></div>
+            <div  id="div2">
+            <h3>Game Rules:</h3>
+
+            <h4>    
+                After reading game rules press <strong><mark>Play Game </mark></strong> then do following things:
+            </h4>
+            <p>&measuredangle; &para; predict by yourself that , what will be  the sum of two dice then select following choices by clicking corresponding buttons </p>
+            <ul>
+                <li>Sum is <strong><mark> More Than 7</mark></strong> &amp;</li>
+                <li>Sum is <strong><mark> Equal to 7</mark></strong> &amp;</li>
+                <li>Sum is <strong><mark> Less Than 7</mark></strong></li>
+            </ul>
+            <p>&diamondsuit; Select the bet amount you want to play with;</p>
+            <p>&fallingdotseq;  Now click the button roll on below dice. If the sum of dice is equal to what you have selected then you won  double of your amount otherwise you lost The game and and whole Bet Amount too.</p>
+            <p>&Diamond; &para; If you have selected sum is equal to 7 you will get double of your bet amount.</p>
+            <p>	&hearts;	&hearts; &hearts; &hearts;	&hearts; 	&hearts; hope you like this. 	&hearts;	&hearts; &hearts; &hearts;	&hearts;	&hearts;</p>
+    
+        </div>
+       <div style="display: flex; justify-content: center;"> <button onclick="hideGameRules()" class="btn"  id="hideButton" >Play Game</button></div>
+    </header>
+
+    <section id="section" class="block" >
+        <div>
+            <h2>Sum is More Than 7</h2>
+            <h3 id="more"  class="selected"></h3>
+            <br>
+            <button id="button1" class="btn" > Select</button>
+        </div>
+        <div>
+            <h2>Sum is Equal to " 7 "</h2>
+            <h3 id="equal" class="selected"></h3>
+
+            <br>
+
+            <button id="button2" class="btn"> Select</button>
+        </div>
+        <div>
+            <h2 >Sum is Less Than 7</h2>
+            <h3 id="less" class="selected"></h3>
+
+            <br>
+
+            <button id="button3" class="btn"> Select</button>
+        </div>
+
+    </section>
+    <div class="innerDiv block" id="betArea"> Bet Amount: <input type="number"  id="betAmt"  placeholder="Rs."  >
+    </div>
+    <div id="output" style="display: flex; justify-content: center;">
+        <h3 id="temp"></h3>
+    </div>
+
+    <footer class="block" id="footer">
+        <div> <img src="images/dice-5.jpeg" alt="dice1" id="dice1">
+            <img src="images/dice-5.jpeg" alt="dice 2" id="dice2"></div>
+            
+            <a href="#" onmousedown="playSound()"><button id="roll" class="btn"><i class="ion-ios-loop"> </i> Roll</button></a>
+    
+    </footer>
+    <div id="intro" >
+    <div class="intro" ><strong>Creator : </strong><p style="display: inline;"><a href="https://www.facebook.com/rishabh.rawat.33671" target="_blank">Rishabh Rawat</a></p></div>
+       <div class="intro"><strong>Contact:</strong><p style="display: inline;"><a href="mailto:dev.rishabh.2901@gmail.com" target="_blank">dev.rishabh.2901@gmail.com</a></p></div>
+       <div class="intro"><p class="cp-text">
+         Copyright &copy; 2020 &reg;. All rights reserved.
+    </p></div>
+    </div>
+
+    <script src="lucky7.js"></script>
+</body>
+
+</html>
