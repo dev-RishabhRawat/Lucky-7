@@ -25,16 +25,16 @@ var winner, sum, score = 0;
 function getScore() {
 
     if (temp.innerHTML === `Congrats! you won!! ${betAmount * 2} Rupees!`) {
-        score = score + betAmount * 2;
+        score = score + (betAmount * 2);
         return score;
     }
     else if (temp.innerHTML === `Congrats! you won!! ${betAmount * 3} Rupees!`) {
-        score = score + betAmount * 3;
+        score = score + (betAmount * 3);
         return score;
     }
     else {
         if (score > 0) {
-            score = score - betAmount
+            score = score - betAmount;
             return score;
         }
         else {
@@ -94,11 +94,8 @@ function betValue() {
 var rollDice = () => {
     betAmount = betValue();
     if (betAmount > 0) {
-        if (msg.childElementCount > 1) {
-            roll.disabled = true;
-        }
-        else {
-            dice1.classList.add('effect1');
+           
+        dice1.classList.add('effect1');
             dice2.classList.add('effect2');
             roll.disabled = false;
             dice1Number = Math.floor(Math.random() * 6 + 1);
@@ -124,8 +121,8 @@ var rollDice = () => {
             setTimeout(() => {
                 dice1.classList.remove('effect1');
                 dice2.classList.remove('effect2');
-            }, 500)
-        }
+            }, 500);
+        
 
     }
     else {
@@ -186,14 +183,7 @@ function whoWon() {
     }
     else {
         if (less.innerHTML === "less Than 7 Selected" || equal.innerHTML === "equal to 7 Selected" || more.innerHTML === "More Than 7 Selected") {
-            temp.innerHTML = "";
-            h3 = document.createElement('h3');
-            h3.textContent = `Bette Luck Next Time! you lost ${betAmount} Rupees `;
-            h3.setAttribute('id', 'betMsg');
-            msg.appendChild(h3);
-            setTimeout(() => {
-                msg.removeChild(h3);
-            }, 1000);
+           temp.innerHTML=`Bette Luck Next Time! you lost ${betAmount} Rupees `;
         }
         else {
             temp.innerHTML = `Please Select Playing condition First!!`;
